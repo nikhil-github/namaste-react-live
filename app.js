@@ -1,3 +1,34 @@
+/**
+ * 
+ * Parcel Bundler does
+ * 
+ * Hot Module Reload 
+ * File watcher 
+ * Bundling 
+ * Minify
+ * Clean the code 
+ * Dev and Production Build
+ * Super Fast Build Algorithm
+ * Image optimization
+ * Caching while development
+ * Compression
+ * Compatible with old version of browsers
+ * HTTPs on dev
+ * Configurable Port Number
+ * Consistent hashing algorithm
+ * Zero Config
+ * 
+ * 
+ * Transitive Dependencies
+ * 
+ */
+
+
+
+
+import React from "react";
+import ReactDOM from "react-dom/client";
+
 
 const heading1 = React.createElement(
     "h1",
