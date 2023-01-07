@@ -1,12 +1,13 @@
 /**
- * 
+ *
  * Parcel Bundler does
- * 
- * Hot Module Reload 
- * File watcher 
- * Bundling 
+ *
+ * Create Server for Dev
+ * Hot Module Replacement (Hotreload)
+ * File watcher
+ * Bundling
  * Minify
- * Clean the code 
+ * Clean the code
  * Dev and Production Build
  * Super Fast Build Algorithm
  * Image optimization
@@ -17,37 +18,40 @@
  * Configurable Port Number
  * Consistent hashing algorithm
  * Zero Config
- * 
- * 
+ * Tree Shaking - Remove unwanted code
+ *
+ *
  * Transitive Dependencies
- * 
+ *
  */
-
-
-
 
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+const title = (
+  <h1 key="h1" id="title">
+    Namaste React
+  </h1>
+)
 
-const heading1 = React.createElement(
-    "h1",
-    { },
-    "Heading 1"
+
+// React Component
+// Functional - NEW
+// Class Based component - OLD
+
+// Functional Component
+// Name starts with capital letter - non mandatory but good practice
+
+const HeaderComponent = () => {
+  return (
+    <div>
+      {title      }
+      <h1>Namaste React Functional Component</h1>
+      <h2>This is an H2 tag</h2>
+    </div>
   );
+};
 
-  const heading2 = React.createElement(
-    "h2",
-    { },
-    "Heading 2"
-  );
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
-  const container = React.createElement(
-    "div",
-    { id : "container" },
-    [heading1, heading2]
-  );
-
-  const root = ReactDOM.createRoot(document.getElementById("root"));
-      
-  root.render(container);
+root.render(<HeaderComponent />);
