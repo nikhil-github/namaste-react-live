@@ -8,7 +8,7 @@ import { useState } from "react";
 
 function filterData(searchText, restros) {
     console.log(restros)
-    return restros.filter( (restro) => restro.name.includes(searchText));
+    return restroList.filter( (restro) => restro.name.includes(searchText));
 }
 
 
