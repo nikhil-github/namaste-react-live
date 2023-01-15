@@ -9,7 +9,7 @@ import Shimmer from "./Shimmer";
 
 function filterData(searchText, allRestros) {
   console.log(allRestros);
-  return allRestros.filter((restro) => restro.data.name.includes(searchText));
+  return allRestros.filter((restro) => restro?.data?.name?.toLowerCase().includes(searchText.toLowerCase()));
 }
 
 const Body = () => {
@@ -37,8 +37,9 @@ const Body = () => {
   }
 
   // conditional rendering
+  if (!allRestros) return null;
 
-  return filteredRestros.length == 0 ? (
+  return allRestros.length == 0 ? (
     <Shimmer />
   ) : (
     <>
@@ -64,6 +65,11 @@ const Body = () => {
       </div>
 
       <div className="restro-list">
+        {/* {if (filteredRestros?.length == 0 ) {
+          return <h1>No restos matching filter</h1>
+        }
+        } */}
+
         {filteredRestros.map((restro) => {
           //  console.log("nikhil testing ", restro.data)
           return <RestroCard {...restro.data} key={restro.data.id} />;
