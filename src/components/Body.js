@@ -2,6 +2,7 @@ import { restroList } from "../config";
 import RestroCard from "./Restro";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 // what is state
 // what is a hook - just another function
@@ -9,7 +10,9 @@ import Shimmer from "./Shimmer";
 
 function filterData(searchText, allRestros) {
   console.log(allRestros);
-  return allRestros.filter((restro) => restro?.data?.name?.toLowerCase().includes(searchText.toLowerCase()));
+  return allRestros.filter((restro) =>
+    restro?.data?.name?.toLowerCase().includes(searchText.toLowerCase())
+  );
 }
 
 const Body = () => {
@@ -72,7 +75,11 @@ const Body = () => {
 
         {filteredRestros.map((restro) => {
           //  console.log("nikhil testing ", restro.data)
-          return <RestroCard {...restro.data} key={restro.data.id} />;
+          return (
+            <Link to={"/restro/" + restro.data.id}>
+              <RestroCard {...restro.data} key={restro.data.id} />
+            </Link>
+          );
         })}
       </div>
     </>
