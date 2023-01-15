@@ -1,40 +1,46 @@
 import { useState } from "react";
+import Logo from "../assets/img/foodvilla.png";
+import { Link } from "react-router-dom";
 
 const isLoggedIn = () => {
   return true;
-}
+};
 
+// SPA - Single Page Application
+// Client Side and Server Side routing
 
 const Title = () => (
   <a href="/">
-    <img
-      className="logo"
-      src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-      alt="logo"
-    ></img>
+    <img className="logo" src={Logo} alt="logo"></img>
   </a>
 );
 
-
 export const Header = () => {
-  const [ isLoggedIn, setIsloggedIn ] = useState(false);
+  const [isLoggedIn, setIsloggedIn] = useState(false);
 
   return (
     <div className="header">
       <Title />
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
           <li>Cart</li>
         </ul>
       </div>
 
       {isLoggedIn ? (
-        <button onClick={ () => setIsloggedIn(false)}>Logout</button>
+        <button onClick={() => setIsloggedIn(false)}>Logout</button>
       ) : (
-        <button onClick={ () =>  setIsloggedIn(true)}>Login</button>
+        <button onClick={() => setIsloggedIn(true)}>Login</button>
       )}
     </div>
   );
