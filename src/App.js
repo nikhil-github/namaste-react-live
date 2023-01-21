@@ -35,6 +35,7 @@ import About from "./components/About";
 import Error from "./components/Error";
 import Contact from "./components/Contact";
 import RestroMenu from "./components/RestroMenu";
+import Profile from "./components/ProfileClass";
 
 
 
@@ -64,6 +65,12 @@ const appRouter = createBrowserRouter([
       {
         path : "/about",
         element: <About />,
+        children : [
+          {
+            path : "profile",
+            element: <Profile />
+          }
+        ]
       },
       {
         path : "/contact",
