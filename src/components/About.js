@@ -18,6 +18,10 @@ class About extends React.Component {
     console.log("constructor about");
   }
 
+  componentDidMount() {
+    
+  }
+
   render() {
     console.log("render about");
     return (
