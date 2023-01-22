@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IMG_URL } from "../config";
+import useRestro from "../utils/useRestros";
 import Shimmer from "./Shimmer";
 
 
@@ -9,17 +10,7 @@ const RestroMenu = () => {
   const params = useParams();
   const { id } = params
 
-  const [ restro , setRestro ] = useState(null);
-
-  useEffect(() => {
-    getRestroInfo();
-  }, []);
-
-  async function getRestroInfo() {
-    const data = await fetch("https://www.swiggy.com/dapi/menu/v4/full?lat=12.9678217&lng=80.2185006&menuId=" + id)
-    const json = await data.json();
-    setRestro(json.data)
-  }
+  const restro = useRestro(id)
 
   if(!restro) {
     return <Shimmer />

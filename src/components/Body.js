@@ -3,17 +3,13 @@ import RestroCard from "./Restro";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnline from "../utils/useOnline";
+import filterData from "../utils/helper";
 
 // what is state
 // what is a hook - just another function
 // what is usestate
 
-function filterData(searchText, allRestros) {
-  console.log(allRestros);
-  return allRestros.filter((restro) =>
-    restro?.data?.name?.toLowerCase().includes(searchText.toLowerCase())
-  );
-}
 
 const Body = () => {
   const [allRestros, setAllRestros] = useState([]);
@@ -37,6 +33,12 @@ const Body = () => {
     // optional chanining
     setFilteredRestros(json?.data?.cards[2]?.data?.data?.cards);
     setAllRestros(json?.data?.cards[2]?.data?.data?.cards);
+  }
+
+  const online = useOnline();
+  
+  if (!online) {
+    return <h1>Please check your internet connection</h1>;
   }
 
   // conditional rendering
