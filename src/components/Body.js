@@ -48,10 +48,10 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="search-container">
+      <div className="p-5 bg-pink-50 my-5">
         <input
           type="text"
-          className="search-input"
+          className="focus:bg-green-500 "
           placeholder="Search"
           value={searchText}
           onChange={(e) => {
@@ -59,7 +59,7 @@ const Body = () => {
           }}
         />
         <button
-          className="search-btn"
+          className="p-2 m-2 bg-purple-900 hover:bg-gray-500 text-white rounded-md"
           onClick={() => {
             const data = filterData(searchText, allRestros);
             setFilteredRestros(data);
@@ -69,7 +69,7 @@ const Body = () => {
         </button>
       </div>
 
-      <div className="restro-list">
+      <div className="flex flex-wrap">
         {/* {if (filteredRestros?.length == 0 ) {
           return <h1>No restos matching filter</h1>
         }
