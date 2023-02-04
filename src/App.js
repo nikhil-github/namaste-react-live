@@ -25,7 +25,7 @@
  *
  */
 
-import React, { Children, lazy, Suspense } from "react";
+import React, { Children, lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -52,6 +52,12 @@ const About = lazy(() => import("./components/About"));
 // Functional Component
 // Name starts with capital letter - non mandatory but good practice
 const AppLayout = () => {
+  const [user, setUser] = useState({
+    name : "Nik",
+    email: "email.com"
+  });
+
+
   return (
     <>
       <Header />

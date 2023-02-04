@@ -1,10 +1,11 @@
 import { restroList } from "../config";
 import RestroCard from "./Restro";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import filterData from "../utils/helper";
+import UserContext from "../utils/userContext";
 
 // what is state
 // what is a hook - just another function
@@ -16,6 +17,7 @@ const Body = () => {
   const [filteredRestros, setFilteredRestros] = useState([]);
   // searchText is a local state variable
   const [searchText, setSearchText] = useState(""); // returns variable name and the set function to update the variable
+  const { user } = useContext(UserContext)
 
   // called after render with empty array
   // dep arr provided, then call useEffect evert time after render
