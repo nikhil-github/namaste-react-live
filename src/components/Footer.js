@@ -3,7 +3,7 @@
 
 const Footer = () => {
     return (
-      <h4>Footer</h4>
+      <h4>Site Developed by Nikhilmace</h4>
     )
   }
   

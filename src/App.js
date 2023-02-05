@@ -34,9 +34,12 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 // import About from "./components/About";
 import Error from "./components/Error";
 import Contact from "./components/Contact";
-import RestroMenu from "./components/RestroMenu";
+import RestroMenuWrapper from "./components/RestroMenu";
 import Profile from "./components/ProfileClass";
 import Shimmer from "./components/Shimmer";
+import { Provider } from "react-redux"
+import Store from "./utils/store";
+import Cart from "./components/Cart";
 
 // React Component
 // Functional - NEW
@@ -59,11 +62,11 @@ const AppLayout = () => {
 
 
   return (
-    <>
+    <Provider store={Store}>
       <Header />
       <Outlet />
       <Footer />
-    </>
+    </Provider>
   );
 };
 
@@ -99,11 +102,15 @@ const appRouter = createBrowserRouter([
           </Suspense>
         ),
       },
+      {
+        path : "/cart",
+        element : <Cart />
+      }
     ],
   },
   {
     path: "/restro/:id",
-    element: <RestroMenu />,
+    element: <RestroMenuWrapper />,
   },
 ]);
 
