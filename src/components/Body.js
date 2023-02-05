@@ -80,8 +80,8 @@ const Body = () => {
         {filteredRestros.map((restro) => {
           //  console.log("nikhil testing ", restro.data)
           return (
-            <Link to={"/restro/" + restro.data.id}>
-              <RestroCard {...restro.data} key={restro.data.id} />
+            <Link to={"/restro/" + restro.data.id} key={restro.data.id}>
+              <RestroCard {...restro.data}  />
             </Link>
           );
         })}

@@ -95,6 +95,10 @@ const appRouter = createBrowserRouter([
         element: <Body />,
       },
       {
+        path: "/restro/:id",
+        element: <RestroMenuWrapper />,
+      },
+      {
         path: "/instamart",
         element: (
           <Suspense fallback={<Shimmer />}>
@@ -107,10 +111,6 @@ const appRouter = createBrowserRouter([
         element : <Cart />
       }
     ],
-  },
-  {
-    path: "/restro/:id",
-    element: <RestroMenuWrapper />,
   },
 ]);
 
